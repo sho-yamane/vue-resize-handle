@@ -1,6 +1,6 @@
 {
   "name": "vue-resize-handle-fixed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "I forked vue-resize-handle.",
   "main": "unidirectional.js",
   "scripts": {

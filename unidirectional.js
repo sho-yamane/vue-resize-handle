@@ -83,7 +83,6 @@ module.exports = {
       }
     },
     dragStart: function(e) {
-      console.log('this.calcSize' + this.calcSize)
       if (!e.defaultPrevented) {
         e.preventDefault();
         this.startSize = this.size;
