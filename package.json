@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/sho-yamane/vue-resize-handle.git"
   },
-  "author": "Sho Yamane <sns.yamane@gmail.com> (httpw://www.sho-yamane.me)",
+  "author": "Sho Yamane <sns.yamane@gmail.com> (https://www.sho-yamane.me)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sho-yamane/vue-resize-handle/issues"
