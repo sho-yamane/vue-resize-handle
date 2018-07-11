@@ -1,6 +1,6 @@
 {
   "name": "vue-resize-handle-fixed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "I forked vue-resize-handle.",
   "main": "unidirectional.js",
   "scripts": {
@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/sho-yamane/vue-resize-handle.git"
   },
-  "author": "Sho Yamane <sns.yamane@gmail.com> (httpw://www.sho-yamane.me)",
+  "author": "Sho Yamane <sns.yamane@gmail.com> (https://www.sho-yamane.me)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sho-yamane/vue-resize-handle/issues"
   },
-  "homepage": "https://github.com/sho-yamane/vue-resize-handle#readme"
+  "homepage": "https://github.com/sho-yamane/vue-resize-handle#readme",
+  "dependencies": {
+    "vue-mixins": "^0.2.9"
+  }
 }

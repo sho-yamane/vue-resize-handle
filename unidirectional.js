@@ -32,7 +32,7 @@ module.exports = {
   },
   data() {
     return {
-      propsSize: this.size
+      calcSize: 0
     }
   },
   computed: {
@@ -69,23 +69,24 @@ module.exports = {
       if (!e.defaultPrevented) {
         e.preventDefault();
         if (this.defaultSize > -1) {
-          oldSize = this.propsSize;
+          oldSize = this.size;
           if (this.defaultSize < this.minSize) {
-            this.propsSize = this.minSize;
+            this.calcSize = this.minSize;
           } else if (this.defaultSize > this.maxSize) {
-            this.propsSize = this.maxSize;
+            this.calcSize = this.maxSize;
           } else {
-            this.propsSize = this.defaultSize;
+            this.calcSize = this.defaultSize;
           }
-          this.$emit("resize", this.propsSize, oldSize, this);
+          this.$emit("resize", this.calcSize, oldSize, this);
           return this.$emit("reset-size");
         }
       }
     },
     dragStart: function(e) {
+      console.log('this.calcSize' + this.calcSize)
       if (!e.defaultPrevented) {
         e.preventDefault();
-        this.startSize = this.propsSize;
+        this.startSize = this.size;
         if (this.horizontal) {
           this.startPos = e.clientX;
         } else {
@@ -99,7 +100,7 @@ module.exports = {
         document.body.style.cursor = this.style.cursor;
         this.removeMoveListener = this.onDocument("mousemove", this.drag);
         this.removeEndListener = this.onceDocument("mouseup", this.dragEnd);
-        return this.$emit("resize-start", this.propsSize, this);
+        return this.$emit("resize-start", this.size, this);
       }
     },
     drag: function(e) {
@@ -120,9 +121,9 @@ module.exports = {
       } else if (newSize > this.maxSize) {
         newSize = this.maxSize;
       }
-      oldSize = this.propsSize;
-      this.propsSize = newSize;
-      return this.$emit("resize", this.propsSize, oldSize, this);
+      oldSize = this.size;
+      this.calcSize = newSize;
+      return this.$emit("resize", this.calcSize, oldSize, this);
     },
     dragEnd: function(e) {
       e.preventDefault();
@@ -133,19 +134,19 @@ module.exports = {
       if (typeof this.removeEndListener === "function") {
         this.removeEndListener();
       }
-      this.$emit("resize-end", this.propsSize, this);
+      this.$emit("resize-end", this.calcSize, this);
       return true;
     }
   },
   watch: {
     "minSize": function(val) {
-      if (this.propsSize < val) {
-        return this.propsSize = val;
+      if (this.size < val) {
+        return this.calcsize = val;
       }
     },
     "maxSize": function(val) {
-      if (this.propsSize > val) {
-        return this.propsSize = val;
+      if (this.size > val) {
+        return this.calcSize = val;
       }
     }
   }
